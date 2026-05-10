@@ -24,7 +24,7 @@ class ChatRequest(BaseModel):
     message: str
 
 @app.post("/api/chat")
-async def chat(request: ChatRequest):
+def chat(request: ChatRequest):
     try:
         client = genai.Client()
         model = "gemini-3-flash-preview"
