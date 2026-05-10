@@ -16,11 +16,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 class ChatRequest(BaseModel):
     message: str
-
-# Use the API key provided
-os.environ["GEMINI_API_KEY"] = "AIzaSyCgzgjsm8WZR05GjmCkYhfSKZJyglhCBIc"
 
 @app.post("/api/chat")
 async def chat(request: ChatRequest):
